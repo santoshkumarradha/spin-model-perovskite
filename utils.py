@@ -39,3 +39,13 @@ def get_U_equation(direction="z"):
         return Ux_symbolic, [t1, p1, t2, p2]
     else:
         raise ValueError("direction must be x, y or z")
+
+
+def create_spehircal_mesh_points(n, start_from_zero=True):
+    t = np.linspace(0, np.rad2deg(2 * np.pi), n)
+    p = np.linspace(0, np.rad2deg(np.pi), n)
+    if not start_from_zero:
+        t = np.linspace(0, np.rad2deg(2 * np.pi), n)
+        p = np.linspace(-np.rad2deg(np.pi / 2), np.rad2deg(np.pi / 2), n)
+    return t, p
+
